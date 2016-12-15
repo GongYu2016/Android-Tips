@@ -165,3 +165,7 @@ editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 	}
 });
 ```
+
+## 打包
+### [分渠道打包脚本](https://github.com/GavinCT/AndroidMultiChannelBuildTool)
+如果能直接修改apk的渠道号，而不需要再重新签名能节省不少打包的时间。幸运的是我们找到了这种方法。直接解压apk，解压后的根目录会有一个META-INF目录。如果在META-INF目录内添加空文件，可以不用重新签名应用。因此，通过为不同渠道的应用添加不同的空文件，可以唯一标识一个渠道。采用这种方式，每打一个渠道包只需复制一个apk，在META-INF中添加一个使用渠道号命名的空文件即可。
